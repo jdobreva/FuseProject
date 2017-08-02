@@ -7,7 +7,9 @@
  */
 
 // Apply the java-library plugin to add support for Java Library
-apply plugin: 'java-library'
+
+apply plugin: 'osgi'
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -36,6 +38,20 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
     testImplementation "org.codehaus.jackson:jackson-mapper-asl:1.9.12"
+}
+
+jar {
+    	manifest { // the manifest of the default jar is of type OsgiManifest
+        name = 'BankReportSystem'
+        //instruction 'Private-Package',
+        //        'org.mycomp.package1',
+        //        'org.mycomp.package2'
+        instruction 'Bundle-Vendor', 'Estafet'
+        instruction 'Bundle-Description', 'Platform2: Metrics 2 Measures Framework'
+        instruction 'Bundle-DocURL', 'http://www.estafet.com'
+        instruction 'Bundle-SymbolicName', '${project.name}'
+        instruction 'Import-Package' '*', 'org.apache.camel.osgi' 
+    }
 }
 
  task deployLocallyInFuse (dependsOn: [build]) {

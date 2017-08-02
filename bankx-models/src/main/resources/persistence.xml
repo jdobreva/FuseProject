@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    version="1.0">
+    <persistence-unit name="managed-jpa" transaction-type="JTA">
+    	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <!-- jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=jdbc/mysqlDatasource)</jta-data-source-->
+        <jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=jdbc/mysqlDatasource)</jta-data-source>
+        <!--jta-data-source>osgi:service/javax.sql.DataSource;osgi.jndi.service.name=jdbc/mysqlDatasource</jta-data-source-->
+        <class>com.estafet.fuse.model.Account</class> 
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+            <property name="hibernate.archive.autodetection" value="class"/>
+             <property name="hibernate.default_schema" value="PUBLIC" />
+             <property name="hibernate.show_sql" value="true" />
+        </properties>
+    </persistence-unit>
+</persistence>
