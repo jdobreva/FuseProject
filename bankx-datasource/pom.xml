@@ -65,5 +65,10 @@
     		<artifactId>tomcat-jdbc</artifactId>
     		<version>8.5.19</version>
 		</dependency>
+		<dependency>
+    		<groupId>mm-mysql</groupId>
+    		<artifactId>mm-mysql</artifactId>
+    		<version>2.0.7</version>
+		</dependency>
     </dependencies>
 </project>

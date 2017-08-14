@@ -15,4 +15,4 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<blueprint default-activation="lazy" xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"/>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"/>

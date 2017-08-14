@@ -49,5 +49,7 @@
 		<module>BankReportSystem</module>
 		<module>bankx-datasource</module>
 		<module>bankx-models</module>
+		<module>bankx-accounts</module>
+		<module>bankx-accounts-impl</module>
   </modules>
 </project>

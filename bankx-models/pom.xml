@@ -40,8 +40,8 @@
 					<instructions>
 						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
 						<Bundle-Version>${project.version}</Bundle-Version>
-						<Export-Package>com.estafet.fuse.model.*;version=${project.version}</Export-Package>
-						<!-- Import-Package>*</Import-Package-->
+						<Export-Package>com.estafet.fuse.model</Export-Package>
+						<Import-Package>org.hibernate.proxy, org.gjt.mm.mysql</Import-Package>
 						<Embed-Dependency>optional, persistence</Embed-Dependency>
 						<Meta-Persistence>persistence.xml</Meta-Persistence>
 						<Require-Bundle>bankx-datasource</Require-Bundle>
@@ -66,6 +66,11 @@
     		<artifactId>mysql-connector-java</artifactId>
     		<version>5.1.6</version>
     		<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>mm-mysql</groupId>
+			<artifactId>mm-mysql</artifactId>
+			<version>2.0.7</version>
 		</dependency>
 		 <dependency>
 		 	<groupId>org.hibernate</groupId>

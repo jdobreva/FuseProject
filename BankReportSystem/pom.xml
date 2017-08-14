@@ -72,7 +72,23 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.6.1</version>
 		</dependency>
-
+    	<dependency>
+    		<groupId>com.estafet.fuse</groupId>
+			<artifactId>bankx-accounts</artifactId>
+			<version>1.0</version>
+			<type>bundle</type>
+    	</dependency>
+    	<dependency>
+    		<groupId>org.apache.camel</groupId>
+    		<artifactId>camel-ftp</artifactId>
+    		<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+    		<groupId>com.estafet.fuse</groupId>
+			<artifactId>bankx-models</artifactId>
+			<version>1.0</version>
+			<type>bundle</type>
+    	</dependency>
 	</dependencies>
 
 	<build>
