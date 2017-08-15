@@ -31,7 +31,8 @@ public class SingleReportRestAssuredTest {
 			.contentType(ContentType.JSON)
 			.body(prepareIbanParameterData())
 		.when()
-			.post("/estafet/iban/report").then()
+			.post("/estafet/iban/report")
+		.then()
 			.assertThat()
 				.statusCode(is("200"))
 				.body("/", equalTo("OK"));
