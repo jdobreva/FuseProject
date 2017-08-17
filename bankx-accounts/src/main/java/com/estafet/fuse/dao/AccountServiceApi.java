@@ -15,9 +15,15 @@
  */
 package com.estafet.fuse.dao;
 
+import java.util.List;
+
 import com.estafet.fuse.model.Account;
 
 public interface AccountServiceApi {
 
 	Account getAccountByIban(String iban);
+	
+	boolean saveAccount(Account account);
+	
+	List<Account> getAccountsWithRasedFlag();
 }

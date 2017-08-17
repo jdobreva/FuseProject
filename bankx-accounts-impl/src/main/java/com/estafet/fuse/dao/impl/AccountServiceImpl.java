@@ -15,6 +15,8 @@
  */
 package com.estafet.fuse.dao.impl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -33,24 +35,17 @@ public class AccountServiceImpl implements AccountServiceApi {
 	public Account getAccountByIban(String iban) {
 		return entityManager.find(Account.class, iban);
 	}
-	
-	 /**
-     * An accessor for the EntityManager. The usage scenario requires only the modifier but the beans specification
-     * requires both, so it is good practice to do it that way.
-     *
-     * @return The EntityManager instance provided to this service.
-     */
-    public EntityManager getEntityManager() {
-        return entityManager;
-    }
 
-    /**
-     * The modifier for the EntityManager dependency.
-     *
-     * @param entityManager The new EntityManager provided for this service.
-     */
-    public void setEntityManager(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
+	@Override
+	public boolean saveAccount(Account account) {
+		entityManager.persist(account);
+		return true;
+	}
+
+	@Override
+	public List<Account> getAccountsWithRasedFlag() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
