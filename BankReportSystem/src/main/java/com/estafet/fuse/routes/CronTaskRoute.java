@@ -16,7 +16,7 @@ public class CronTaskRoute extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 		from("quartz2://myFirstChonJob/myTimerName?cron=0+0/1+0/9-18+?+*+MON-FRI")
-		.routeId("Cron Route")
+		.routeId("Test Cron Route")
 		.log(LoggingLevel.INFO, "Hello, this is chron job: " + simple("${date:now:hh-mm-ss}"))
 		.end();
 
