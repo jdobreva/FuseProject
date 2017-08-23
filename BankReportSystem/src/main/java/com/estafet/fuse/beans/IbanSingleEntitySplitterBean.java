@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.estafet.fuse.model.IbanSingleReportEntity;
+import com.estafet.fuse.dto.IbanSingleReportEntity;
 
 public class IbanSingleEntitySplitterBean {
 

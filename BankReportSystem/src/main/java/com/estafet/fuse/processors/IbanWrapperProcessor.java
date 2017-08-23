@@ -7,9 +7,9 @@ import org.apache.camel.Processor;
 
 import com.estafet.fuse.json.IbanWrapper;
 
-public class IbanWrapperRouter implements Processor {
+public class IbanWrapperProcessor implements Processor {
 
-	public IbanWrapperRouter() {
+	public IbanWrapperProcessor() {
 	}
 
 	@Override

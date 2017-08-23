@@ -7,8 +7,8 @@ import org.apache.camel.BeanInject;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 
-import com.estafet.fuse.dao.IbanSingleReportService;
-import com.estafet.fuse.model.IbanSingleReportEntity;
+import com.estafet.fuse.dto.IbanSingleReportEntity;
+import com.estafet.fuse.local.IbanSingleReportService;
 
 /**
  * @author jdobreva

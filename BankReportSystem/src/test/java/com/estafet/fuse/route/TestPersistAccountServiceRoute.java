@@ -16,9 +16,9 @@ import org.junit.Test;
 
 import com.estafet.fuse.beans.IbanSingleEntitySplitterBean;
 import com.estafet.fuse.dao.AccountServiceApi;
+import com.estafet.fuse.dto.IbanSingleReportEntity;
 import com.estafet.fuse.model.Account;
-import com.estafet.fuse.model.IbanSingleReportEntity;
-import com.estafet.fuse.processors.AccountRegistationRouter;
+import com.estafet.fuse.processors.AccountRegistationProcessor;
 import com.fasterxml.jackson.core.JsonGenerationException;
 
 public class TestPersistAccountServiceRoute extends CamelTestSupport {
@@ -44,7 +44,7 @@ public class TestPersistAccountServiceRoute extends CamelTestSupport {
 	@Override
 	protected RouteBuilder createRouteBuilder() {
 		IbanSingleEntitySplitterBean splitterBean = new IbanSingleEntitySplitterBean();
-		AccountRegistationRouter savingRouter = new AccountRegistationRouter();
+		AccountRegistationProcessor savingRouter = new AccountRegistationProcessor();
 		savingRouter.setAccountService(new MyMockedAccountServiceApi());
 		
 		return new RouteBuilder() {
@@ -58,7 +58,7 @@ public class TestPersistAccountServiceRoute extends CamelTestSupport {
 		};
 	}
 
-	private String createServiceTestData() throws JsonGenerationException, IOException {
+	private static String createServiceTestData() throws JsonGenerationException, IOException {
 		List<IbanSingleReportEntity> entities = new ArrayList<IbanSingleReportEntity>();
 		entities.add(new IbanSingleReportEntity("BG12313123123123", "Kamen Dimitrov", 10.0, null));
 		entities.add(new IbanSingleReportEntity("BG12346453453312", "Damyan Gerogiev", 40, null));
@@ -90,6 +90,18 @@ public class TestPersistAccountServiceRoute extends CamelTestSupport {
 			return false;
 		}
 		
+	}
+	
+	public static void main(String[] args){
+		try {
+			System.out.println(createServiceTestData());
+		} catch (JsonGenerationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

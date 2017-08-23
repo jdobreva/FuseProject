@@ -2,10 +2,24 @@
 <blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
     xmlns:jpa="http://aries.apache.org/xmlns/jpa/v1.1.0"
     xmlns:tx="http://aries.apache.org/xmlns/transactions/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   
     <bean class="com.estafet.fuse.dao.impl.AccountServiceImpl" id="accountService"/>
-    
+    <bean class="org.apache.camel.component.jpa.JpaComponent" id="jpa">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+        <property name="transactionManager" ref="jpaTxManager"/>
+    </bean>
+    <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="jpaTxManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+    <bean
+        class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"
+        id="entityManagerFactoryBean" init-method="afterPropertiesSet">
+        <property name="persistenceUnitName" value="bankx"/>
+        <property name="jpaDialect">
+            <bean class="org.springframework.orm.jpa.vendor.OpenJpaDialect"/>
+        </property>
+    </bean>
+    <bean factory-method="getObject"
+        factory-ref="entityManagerFactoryBean" id="entityManagerFactory"/>
     <service id="accountsService"
         interface="com.estafet.fuse.dao.AccountServiceApi" ranking="1" ref="accountService"/>
-        
 </blueprint>

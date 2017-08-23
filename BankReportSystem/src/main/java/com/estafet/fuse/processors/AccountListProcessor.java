@@ -7,11 +7,11 @@ import org.apache.camel.Processor;
 
 import com.estafet.fuse.dao.AccountServiceApi;
 
-public class AccountListRouter implements Processor {
+public class AccountListProcessor implements Processor {
 	
 	private AccountServiceApi accountService;
 
-	public AccountListRouter() {
+	public AccountListProcessor() {
 	}
 
 	@Override

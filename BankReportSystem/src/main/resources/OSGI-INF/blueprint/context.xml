@@ -15,7 +15,6 @@
         <property name="userName" value="admin"/>
         <property name="password" value="admin"/>
     </bean>
-    
     <bean class="org.apache.activemq.pool.PooledConnectionFactory"
         destroy-method="stop" id="pooledConnectionFactory" init-method="start">
         <property name="maxConnections" value="8"/>
@@ -37,5 +36,6 @@
         typeConverterStatisticsEnabled="true" xmlns="http://camel.apache.org/schema/blueprint">
         <propertyPlaceholder id="properties" location="com/estafet/fuse/settings.properties"/>
         <routeBuilder ref="bankServiceRoute"/>
+        <routeBuilder ref="accountSavingRoute"/>
     </camelContext>
 </blueprint>

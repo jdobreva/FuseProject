@@ -18,7 +18,9 @@ package com.estafet.fuse.dao.impl;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import com.estafet.fuse.dao.AccountServiceApi;
 import com.estafet.fuse.model.Account;
@@ -38,14 +40,38 @@ public class AccountServiceImpl implements AccountServiceApi {
 
 	@Override
 	public boolean saveAccount(Account account) {
-		entityManager.persist(account);
+		EntityTransaction t = entityManager.getTransaction();
+		try {
+			t.begin();
+			entityManager.persist(account);
+			t.commit();	
+		}catch (Exception e){
+			t.rollback();
+			return false;
+		}
+		
+		return true;
+	}
+	
+	@Override
+	public boolean updateAccount(Account account) {
+		EntityTransaction t = entityManager.getTransaction();
+		try {
+			t.begin();
+			entityManager.merge(account);
+			t.commit();	
+		}catch (Exception e){
+			t.rollback();
+			return false;
+		}
+		
 		return true;
 	}
 
 	@Override
-	public List<Account> getAccountsWithRasedFlag() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<String> getAccountsWithRasedFlag() {
+		Query query = entityManager.createNamedQuery("flaggedAccounts");
+		return query.getResultList();
 	}
 
 }

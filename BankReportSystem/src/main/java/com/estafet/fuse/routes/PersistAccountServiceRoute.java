@@ -25,7 +25,7 @@ public class PersistAccountServiceRoute extends RouteBuilder {
 				.unmarshal().json(JsonLibrary.Jackson, List.class, true).split()
 				.method("accountDataSlitterBean", "splitAccounts")
 				.log(LoggingLevel.INFO, "Received new Account " + body())
-				.process("accountSavingRouter")
+				.process("accountRegistationProcessor")
 				.filter(header("SaveResult").isEqualTo(Boolean.TRUE))
 				.log(LoggingLevel.INFO, "A new account ${body.iban} is created")
 				.end()

@@ -6,31 +6,35 @@
     <bean class="com.estafet.fuse.routes.IbanSingleReportServiceRoute" id="bankServiceRoute"/>
     <bean class="com.estafet.fuse.routes.SecondTaskReportServiceRoute" id="secondTaskRoute"/>
     <bean class="com.estafet.fuse.routes.CronTaskRoute" id="chronTaskRoute"/>
-    <bean class="com.estafet.fuse.routes.AccountRegistationRouter" id="accountRegistationRouter">
-        <property name="accountService" ref="accoutService"/>
-    </bean>
-    <bean class="com.estafet.fuse.routes.AccountUpdateRouter" id="accountUpdateRouter">
-        <property name="accountService" ref="accoutService"/>
-    </bean>
-    <bean class="com.estafet.fuse.routes.AccountListRouter" id="accountListRouter">
-        <property name="accountService" ref="accoutService"/>
-    </bean>
-    <bean class="com.estafet.fuse.routes.IbanWrapperRouter" id="ibanWrapperRouter"/>
+    <bean class="com.estafet.fuse.routes.PersistAccountServiceRoute" id="accountSavingRoute"/>
+   
     <!--  DAO -->
-    <bean class="com.estafet.fuse.dao.IbanSingleReportService" id="ibanSingleReportDaoBean"/>
+    <bean class="com.estafet.fuse.local.IbanSingleReportService" id="ibanSingleReportDaoBean"/>
     <bean class="com.estafet.fuse.processors.FakeDataProcessor" id="fakeDataProcessor">
-        <property name="accountEnricherService " ref="accountService"/>
+        <property name="accountService" ref="accountService"/>
     </bean>
     <!-- Processor -->
     <bean
         class="com.estafet.fuse.processors.IbanSingleEntityReportProcessor" id="ibanReportProcessor"/>
     <bean class="com.estafet.fuse.processors.IbanEntityProcessor" id="ibanEntityProcessor"/>
+     <bean
+        class="com.estafet.fuse.processors.AccountRegistationProcessor" id="accountRegistationProcessor">
+        <property name="accountService" ref="accountService"/>
+    </bean>
+    <bean class="com.estafet.fuse.processors.AccountUpdateProcessor" id="accountUpdateProcessor">
+        <property name="accountService" ref="accountService"/>
+    </bean>
+    <bean class="com.estafet.fuse.processors.AccountListProcessor" id="accountListProcessor">
+        <property name="accountService" ref="accountService"/>
+    </bean>
+    <bean class="com.estafet.fuse.processors.IbanWrapperProcessor" id="ibanWrapperProcessor"/>
+    
     <!-- Aggregation strategies -->
     <bean
         class="com.estafet.fuse.processors.strategy.IbanEntityAggregation" id="ibanEntityAggregation"/>
     <bean
         class="com.estafet.fuse.processors.strategy.ReportIbanEntityAggregation" id="reportIbanEntityAggregation"/>
-    <bean class="com.estafet.fuse.processors.AccountRegistationRouter" id="accountSavingRouter"/>
+
     <!-- other beans -->
     <bean class=" com.estafet.fuse.beans.IbanSingleEntitySplitterBean" id="accountDataSlitterBean"/>
 </blueprint>

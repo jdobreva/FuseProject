@@ -24,7 +24,7 @@ public class CronUpdateListReportRoute extends RouteBuilder {
 		.choice()
 			.when(simple("${body.size} > 0"))
 			.log(LoggingLevel.INFO, "Found updated accounts")
-				.process("ibanWrapperRouter")
+				.process("ibanWrapperProcessor")
 				.marshal().json(JsonLibrary.Jackson, IbanWrapper.class)
 				.to("jetty:{{jetty.endpoint.entry.url2}}?httpMethodRestrict=POST&continuationTimeout=5000")
 			.otherwise()

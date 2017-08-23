@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.estafet.fuse.model.IbanSingleReportEntity;
+import com.estafet.fuse.dto.IbanSingleReportEntity;
 
 public class ListIbanEntityWrapper implements Serializable {
 

@@ -46,8 +46,8 @@
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Version>${project.version}</Bundle-Version>
-                        <Export-Package>com.estafet.fuse.dao.impl</Export-Package>
-                        <Import-Package>com.estafet.fuse.dao, com.estafet.fuse.model</Import-Package>
+                        <!--Export-Package>com.estafet.fuse.dao.impl</Export-Package-->
+                        <Import-Package>*</Import-Package>
                         <Require-Bundle>bankx-accounts, bankx-models</Require-Bundle>
                     </instructions>
                 </configuration>
@@ -61,12 +61,7 @@
 			<version>1.0</version>
 			<type>bundle</type>
     	</dependency>
-    	 <dependency>
-    		<groupId>com.estafet.fuse</groupId>
-			<artifactId>bankx-datasource</artifactId>
-			<version>1.0</version>
-			<type>bundle</type>
-    	</dependency>
+    	
     	<dependency>
     		<groupId>com.estafet.fuse</groupId>
 			<artifactId>bankx-accounts</artifactId>
@@ -74,9 +69,9 @@
 			<type>bundle</type>
     	</dependency>
     	 <dependency>
-    		<groupId>javax.persistence</groupId>
-    		<artifactId>persistence-api</artifactId>
-    		<version>1.0.2</version>
+    		<groupId>org.hibernate.javax.persistence</groupId>
+    		<artifactId>hibernate-jpa-2.1-api</artifactId>
+    		<version>${hibernate.jpa.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.osgi</groupId>

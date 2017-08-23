@@ -25,5 +25,7 @@ public interface AccountServiceApi {
 	
 	boolean saveAccount(Account account);
 	
-	List<Account> getAccountsWithRasedFlag();
+	boolean updateAccount(Account account);
+	
+	List<String> getAccountsWithRasedFlag();
 }

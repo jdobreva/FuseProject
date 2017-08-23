@@ -5,10 +5,12 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="accounts")
+@NamedQuery(name="flaggedAccounts", query="Select a.iban from Account a where a.flag=true")
 public class Account implements Serializable {
 	
 	private static final long serialVersionUID = 8509433648225046161L;
@@ -21,7 +23,12 @@ public class Account implements Serializable {
 	private double balance;
 	@Column
 	private String currency;
+	@Column
+	private boolean flag;
 	
+	public Account(){
+		
+	}
 	
 	public Account(String iban, String name, double balance, String currency) {
 		super();
@@ -29,6 +36,7 @@ public class Account implements Serializable {
 		this.name = name;
 		this.balance = balance;
 		this.currency = currency;
+		this.flag = false;
 	}
 	
 	public Account(String iban) {
@@ -61,6 +69,14 @@ public class Account implements Serializable {
 		this.currency = currency;
 	}
 	
+	public boolean isFlag() {
+		return flag;
+	}
+
+	public void setFlag(boolean flag) {
+		this.flag = flag;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

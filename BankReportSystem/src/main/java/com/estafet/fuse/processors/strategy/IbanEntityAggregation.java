@@ -6,7 +6,7 @@ import org.apache.camel.Exchange;
  */
 import org.apache.camel.processor.aggregate.AggregationStrategy;
 
-import com.estafet.fuse.model.IbanSingleReportEntity;
+import com.estafet.fuse.dto.IbanSingleReportEntity;
 
 public class IbanEntityAggregation implements AggregationStrategy {
 

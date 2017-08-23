@@ -3,8 +3,8 @@ package com.estafet.fuse.processors.strategy;
 import org.apache.camel.Exchange;
 import org.apache.camel.processor.aggregate.AggregationStrategy;
 
+import com.estafet.fuse.dto.IbanSingleReportEntity;
 import com.estafet.fuse.json.ListIbanEntityWrapper;
-import com.estafet.fuse.model.IbanSingleReportEntity;
 
 public class ReportIbanEntityAggregation implements AggregationStrategy {
 	

@@ -25,7 +25,7 @@ public class UpdateAccountServiceRoute extends RouteBuilder {
 				.unmarshal().json(JsonLibrary.Jackson, List.class, true).split()
 				.method("accountDataSlitterBean", "splitAccounts")
 				.log(LoggingLevel.INFO, "Received new Account " + body())
-				.process("accountListRouter")
+				.process("accountUpdateProcessor")
 				.filter(header("UpdateResult").isEqualTo(Boolean.TRUE))
 				.log(LoggingLevel.INFO, "The account ${body.iban} is updated")
 				.end()

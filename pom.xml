@@ -11,6 +11,7 @@
 		<java.version>1.8</java.version>
 		<camel.version>2.17.0.redhat-630187</camel.version>
 		<hibernate.version>4.2.22.Final-redhat-1</hibernate.version>
+		<hibernate.jpa.version>1.0.0.Final-redhat-1</hibernate.jpa.version>
 	</properties>
 
 	<build>

@@ -6,7 +6,7 @@ package com.estafet.fuse.processors;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 
-import com.estafet.fuse.model.IbanSingleReportEntity;
+import com.estafet.fuse.dto.IbanSingleReportEntity;
 
 /**
  * @author jdobreva

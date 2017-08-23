@@ -13,7 +13,7 @@
 	<artifactId>BankReportSystem</artifactId>
 	<version>1.0</version>
 	<packaging>bundle</packaging>
-	<name>A Camel OSGi Service Unit</name>
+	<name>BankxSystemApplication</name>
 	<url>http://www.estafet.com</url>
 
 	<properties>
@@ -61,6 +61,11 @@
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-xstream</artifactId>
 			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.hibernate.javax.persistence</groupId>
+    		<artifactId>hibernate-jpa-2.1-api</artifactId>
+    		<version>${hibernate.jpa.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>

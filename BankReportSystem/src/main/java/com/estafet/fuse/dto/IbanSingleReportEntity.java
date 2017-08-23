@@ -1,4 +1,4 @@
-package com.estafet.fuse.model;
+package com.estafet.fuse.dto;
 
 import java.io.Serializable;
 
@@ -10,6 +10,9 @@ public class IbanSingleReportEntity implements Serializable {
 	private double balance;
 	private String currency;
 	
+	public IbanSingleReportEntity() {
+		
+	}
 	
 	public IbanSingleReportEntity(String iban, String name, double balance, String currency) {
 		super();

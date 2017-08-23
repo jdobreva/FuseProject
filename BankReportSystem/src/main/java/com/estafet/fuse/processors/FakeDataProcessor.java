@@ -2,11 +2,11 @@ package com.estafet.fuse.processors;
 
 import org.apache.camel.Exchange;
 import com.estafet.fuse.model.Account;
-import com.estafet.fuse.model.IbanSingleReportEntity;
 
 import org.apache.camel.Processor;
 
 import com.estafet.fuse.dao.AccountServiceApi;
+import com.estafet.fuse.dto.IbanSingleReportEntity;
 
 public class FakeDataProcessor implements Processor {
 

@@ -14,9 +14,9 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.JsonLibrary;
 import org.apache.camel.util.toolbox.AggregationStrategies;
 
+import com.estafet.fuse.dto.IbanSingleReportEntity;
 import com.estafet.fuse.json.IbanWrapper;
 import com.estafet.fuse.json.ListIbanEntityWrapper;
-import com.estafet.fuse.model.IbanSingleReportEntity;
 import com.estafet.fuse.processors.strategy.IbanEntityAggregation;
 import com.estafet.fuse.processors.strategy.ReportIbanEntityAggregation;
 
